@@ -1,0 +1,153 @@
+# Kodi Media Center language file
+# Addon Name: Movie Shortlist
+# Addon id: plugin.video.movieshortlist
+# Addon Provider: Movie Shortlist contributors
+msgid ""
+msgstr ""
+"Project-Id-Version: plugin.video.movieshortlist\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-15 00:00+0000\n"
+"PO-Revision-Date: 2026-10-15 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: English (United Kingdom)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#32001"
+msgid "Add to movie shortlist"
+msgstr ""
+
+msgctxt "#32002"
+msgid "Remove from movie shortlist"
+msgstr ""
+
+msgctxt "#32010"
+msgid "Movie shortlist"
+msgstr ""
+
+msgctxt "#32011"
+msgid "Show movie shortlist ({0})"
+msgstr ""
+
+msgctxt "#32012"
+msgid "Pick a random movie"
+msgstr ""
+
+msgctxt "#32013"
+msgid "Sort order: {0}"
+msgstr ""
+
+msgctxt "#32014"
+msgid "Clear movie shortlist"
+msgstr ""
+
+msgctxt "#32015"
+msgid "Change sort order"
+msgstr ""
+
+msgctxt "#32020"
+msgid "\"{0}\" added to the movie shortlist"
+msgstr ""
+
+msgctxt "#32021"
+msgid "\"{0}\" is already on the movie shortlist"
+msgstr ""
+
+msgctxt "#32022"
+msgid "\"{0}\" removed from the movie shortlist"
+msgstr ""
+
+msgctxt "#32023"
+msgid "This movie is not on the movie shortlist"
+msgstr ""
+
+msgctxt "#32024"
+msgid "Do you want to remove all movies from the movie shortlist?"
+msgstr ""
+
+msgctxt "#32025"
+msgid "The movie shortlist has been cleared"
+msgstr ""
+
+msgctxt "#32026"
+msgid "The movie shortlist is empty"
+msgstr ""
+
+msgctxt "#32027"
+msgid "The movie shortlist is empty - add movies via the context menu of the movie library"
+msgstr ""
+
+msgctxt "#32028"
+msgid "Removed {0} movie(s) that are no longer in the library"
+msgstr ""
+
+msgctxt "#32029"
+msgid "The video library is not available"
+msgstr ""
+
+msgctxt "#32030"
+msgid "The movie was not found in the video library"
+msgstr ""
+
+msgctxt "#32031"
+msgid "The saved movie shortlist was damaged and has been reset"
+msgstr ""
+
+msgctxt "#32032"
+msgid "The movie shortlist could not be saved"
+msgstr ""
+
+msgctxt "#32033"
+msgid "Only movies from the Kodi movie library can be added"
+msgstr ""
+
+msgctxt "#32036"
+msgid "An unexpected error occurred (see Kodi log)"
+msgstr ""
+
+msgctxt "#32040"
+msgid "Order added (newest first)"
+msgstr ""
+
+msgctxt "#32041"
+msgid "Title (alphabetical)"
+msgstr ""
+
+msgctxt "#32042"
+msgid "Year (newest first)"
+msgstr ""
+
+msgctxt "#32043"
+msgid "IMDb rating (highest first)"
+msgstr ""
+
+msgctxt "#32044"
+msgid "Runtime (shortest first)"
+msgstr ""
+
+msgctxt "#32100"
+msgid "General"
+msgstr ""
+
+msgctxt "#32101"
+msgid "Sort order of the movie shortlist"
+msgstr ""
+
+msgctxt "#32102"
+msgid "Order in which the movies of the shortlist are shown. Can also be changed from the add-on menu."
+msgstr ""
+
+msgctxt "#32103"
+msgid "Troubleshooting"
+msgstr ""
+
+msgctxt "#32104"
+msgid "Enable debug logging"
+msgstr ""
+
+msgctxt "#32105"
+msgid "Writes additional information to the Kodi log. Only needed for troubleshooting."
+msgstr ""

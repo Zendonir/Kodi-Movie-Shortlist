@@ -1,0 +1,153 @@
+# Kodi Media Center language file
+# Addon Name: Movie Shortlist
+# Addon id: plugin.video.movieshortlist
+# Addon Provider: Movie Shortlist contributors
+msgid ""
+msgstr ""
+"Project-Id-Version: plugin.video.movieshortlist\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-15 00:00+0000\n"
+"PO-Revision-Date: 2026-10-15 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#32001"
+msgid "Add to movie shortlist"
+msgstr "Zur Filmauswahl hinzufügen"
+
+msgctxt "#32002"
+msgid "Remove from movie shortlist"
+msgstr "Aus Filmauswahl entfernen"
+
+msgctxt "#32010"
+msgid "Movie shortlist"
+msgstr "Filmauswahl"
+
+msgctxt "#32011"
+msgid "Show movie shortlist ({0})"
+msgstr "Filmauswahl anzeigen ({0})"
+
+msgctxt "#32012"
+msgid "Pick a random movie"
+msgstr "Zufälligen Film auswählen"
+
+msgctxt "#32013"
+msgid "Sort order: {0}"
+msgstr "Sortierung: {0}"
+
+msgctxt "#32014"
+msgid "Clear movie shortlist"
+msgstr "Filmauswahl leeren"
+
+msgctxt "#32015"
+msgid "Change sort order"
+msgstr "Sortierung ändern"
+
+msgctxt "#32020"
+msgid "\"{0}\" added to the movie shortlist"
+msgstr "„{0}“ zur Filmauswahl hinzugefügt"
+
+msgctxt "#32021"
+msgid "\"{0}\" is already on the movie shortlist"
+msgstr "„{0}“ ist bereits in der Filmauswahl"
+
+msgctxt "#32022"
+msgid "\"{0}\" removed from the movie shortlist"
+msgstr "„{0}“ aus der Filmauswahl entfernt"
+
+msgctxt "#32023"
+msgid "This movie is not on the movie shortlist"
+msgstr "Dieser Film ist nicht in der Filmauswahl"
+
+msgctxt "#32024"
+msgid "Do you want to remove all movies from the movie shortlist?"
+msgstr "Möchtest du alle Filme aus der Filmauswahl entfernen?"
+
+msgctxt "#32025"
+msgid "The movie shortlist has been cleared"
+msgstr "Die Filmauswahl wurde geleert"
+
+msgctxt "#32026"
+msgid "The movie shortlist is empty"
+msgstr "Die Filmauswahl ist leer"
+
+msgctxt "#32027"
+msgid "The movie shortlist is empty - add movies via the context menu of the movie library"
+msgstr "Die Filmauswahl ist leer – Filme über das Kontextmenü der Filmbibliothek hinzufügen"
+
+msgctxt "#32028"
+msgid "Removed {0} movie(s) that are no longer in the library"
+msgstr "{0} Film(e) entfernt, die nicht mehr in der Bibliothek sind"
+
+msgctxt "#32029"
+msgid "The video library is not available"
+msgstr "Die Videobibliothek ist nicht erreichbar"
+
+msgctxt "#32030"
+msgid "The movie was not found in the video library"
+msgstr "Der Film wurde in der Videobibliothek nicht gefunden"
+
+msgctxt "#32031"
+msgid "The saved movie shortlist was damaged and has been reset"
+msgstr "Die gespeicherte Filmauswahl war beschädigt und wurde zurückgesetzt"
+
+msgctxt "#32032"
+msgid "The movie shortlist could not be saved"
+msgstr "Die Filmauswahl konnte nicht gespeichert werden"
+
+msgctxt "#32033"
+msgid "Only movies from the Kodi movie library can be added"
+msgstr "Nur Filme aus der Kodi-Filmbibliothek können vorgemerkt werden"
+
+msgctxt "#32036"
+msgid "An unexpected error occurred (see Kodi log)"
+msgstr "Ein unerwarteter Fehler ist aufgetreten (siehe Kodi-Log)"
+
+msgctxt "#32040"
+msgid "Order added (newest first)"
+msgstr "Reihenfolge des Hinzufügens (neueste zuerst)"
+
+msgctxt "#32041"
+msgid "Title (alphabetical)"
+msgstr "Filmtitel (alphabetisch)"
+
+msgctxt "#32042"
+msgid "Year (newest first)"
+msgstr "Erscheinungsjahr (neueste zuerst)"
+
+msgctxt "#32043"
+msgid "IMDb rating (highest first)"
+msgstr "IMDb-Bewertung (höchste zuerst)"
+
+msgctxt "#32044"
+msgid "Runtime (shortest first)"
+msgstr "Laufzeit (kürzeste zuerst)"
+
+msgctxt "#32100"
+msgid "General"
+msgstr "Allgemein"
+
+msgctxt "#32101"
+msgid "Sort order of the movie shortlist"
+msgstr "Sortierung der Filmauswahl"
+
+msgctxt "#32102"
+msgid "Order in which the movies of the shortlist are shown. Can also be changed from the add-on menu."
+msgstr "Reihenfolge, in der die Filme der Filmauswahl angezeigt werden. Kann auch im Menü des Add-ons geändert werden."
+
+msgctxt "#32103"
+msgid "Troubleshooting"
+msgstr "Fehlersuche"
+
+msgctxt "#32104"
+msgid "Enable debug logging"
+msgstr "Ausführliche Protokollierung aktivieren"
+
+msgctxt "#32105"
+msgid "Writes additional information to the Kodi log. Only needed for troubleshooting."
+msgstr "Schreibt zusätzliche Informationen ins Kodi-Log. Nur zur Fehlersuche nötig."
