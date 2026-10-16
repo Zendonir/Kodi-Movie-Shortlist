@@ -85,6 +85,7 @@ def show_shortlist(handle):
             (common.localize(32002), run_plugin_command(action='remove', movieid=movieid)),
             (common.localize(32012), run_plugin_command(action='random')),
             (common.localize(32015), run_plugin_command(action='sort')),
+            (common.localize(32014), run_plugin_command(action='clear')),
         ]
         url, listitem = listing.build_listitem(details, context_menu)
         items.append((url, listitem, False))

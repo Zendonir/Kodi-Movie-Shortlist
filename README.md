@@ -25,6 +25,9 @@ des Abends aus.
 3. Kodi → **Einstellungen → Add-ons → Aus ZIP-Datei installieren** → Repository-ZIP auswählen.
 4. **Aus Repository installieren → Movie Shortlist Repository → Video-Add-ons →
    Movie Shortlist → Installieren.**
+5. **Kodi einmal neu starten.** Kodi 21 baut die Kontextmenüeinträge eines frisch
+   installierten Add-ons auf, bevor es dessen Sprachdateien lädt; ohne Neustart fehlen die
+   Einträge deshalb bis zum nächsten Kodi-Start (bei späteren Updates nicht nötig).
 
 Kodi prüft das Repository danach regelmäßig (standardmäßig alle 24 Stunden und beim Start)
 und installiert neue Versionen automatisch – sofern unter **Einstellungen → System →
@@ -34,7 +37,7 @@ Sofort prüfen: **Add-ons → Meine Add-ons → Add-on-Repository → Movie Shor
 
 ### Alternativ: nur das Add-on (ohne automatische Updates)
 
-[`dist/plugin.video.movieshortlist-1.0.0.zip`](https://github.com/Zendonir/Kodi-Movie-Shortlist/raw/main/dist/plugin.video.movieshortlist-1.0.0.zip)
+[`dist/plugin.video.movieshortlist-1.0.1.zip`](https://github.com/Zendonir/Kodi-Movie-Shortlist/raw/main/dist/plugin.video.movieshortlist-1.0.1.zip)
 herunterladen und wie oben über „Aus ZIP-Datei installieren“ einspielen. Wird später das
 Repository installiert, übernimmt es die Updates für dieses Add-on.
 
@@ -56,7 +59,7 @@ Add-on; Movie Shortlist enthält:
 | Erweiterungspunkt            | Datei               | Aufgabe                                           |
 |------------------------------|---------------------|---------------------------------------------------|
 | `xbmc.python.pluginsource`   | `main.py`           | Video-Add-on mit Menü und Filmliste               |
-| `kodi.context.item`          | `context_add.py`, `context_remove.py` | Kontextmenüeinträge in der Bibliothek |
+| `kodi.context.item`          | `context_add.py`, `context_remove.py`, `context_clear.py` | Kontextmenüeinträge in der Bibliothek |
 | `xbmc.service`               | `service.py`        | Stellt nach Kodi-Start/Profilwechsel den Kontextmenü-Status her |
 
 
@@ -75,6 +78,13 @@ Ist der Film bereits vorgemerkt, steht an dieser Stelle **„Aus Filmauswahl ent
 Es gibt keine Rückfragen und die aktuelle Ansicht bleibt unverändert (keine Aktualisierung,
 die Markierung bleibt stehen).
 
+Sobald Filme vorgemerkt sind, enthält das Kontextmenü jedes Films außerdem
+**„Filmauswahl leeren“** (mit der Rückfrage „Möchtest du alle Filme aus der Filmauswahl
+entfernen?“ – Ja/Nein).
+
+Die Position der Einträge im Kontextmenü legt Kodi fest: zuerst Kodis eigene Einträge,
+danach die aller Add-ons. Ein Add-on kann sich nicht an den Anfang setzen.
+
 ### Filmauswahl ansehen
 
 **Add-ons → Video-Add-ons → Movie Shortlist**:
@@ -87,7 +97,8 @@ die Markierung bleibt stehen).
 | **Filmauswahl leeren**            | Nach der Rückfrage „Möchtest du alle Filme aus der Filmauswahl entfernen?“ (Ja/Nein) |
 
 Im Kontextmenü eines Films **innerhalb** der Filmauswahl:
-„Aus Filmauswahl entfernen“, „Zufälligen Film auswählen“, „Sortierung ändern“.
+„Aus Filmauswahl entfernen“, „Zufälligen Film auswählen“, „Sortierung ändern“,
+„Filmauswahl leeren“.
 Entfernt wird ausschließlich der Eintrag in der Filmauswahl – nie der Film aus der
 Bibliothek oder vom Datenträger.
 
@@ -245,7 +256,7 @@ Kodi-Modulen) sowie durch **statische Prüfung gegen die echte Kodi-21-API**:
 * Alle angeforderten JSON-RPC-Felder sind gültige `Video.Fields.Movie` von Kodi 21.
 * `kodi-addon-checker` (Branch omega) für Manifest/Struktur.
 
-Automatisierte Tests (`python3 -m unittest discover -s tests`, 42 Tests):
+Automatisierte Tests (`python3 -m unittest discover -s tests`, 44 Tests):
 
 | Bereich | Geprüft |
 |---------|---------|
@@ -279,7 +290,7 @@ Verfügung). Empfohlene Abnahme-Checkliste:
 plugin.video.movieshortlist/          ← Inhalt des ZIP
 ├── addon.xml                         Manifest (Plugin, Kontextmenü, Dienst, Metadaten)
 ├── main.py                           Einstieg Video-Add-on
-├── context_add.py / context_remove.py  Einstieg Kontextmenü
+├── context_add.py / context_remove.py / context_clear.py  Einstieg Kontextmenü
 ├── service.py                        Einstieg Dienst
 ├── resources/
 │   ├── settings.xml
