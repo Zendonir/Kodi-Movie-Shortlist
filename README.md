@@ -15,12 +15,40 @@ des Abends aus.
 
 ## 1. Installation
 
-1. ZIP-Datei [`dist/plugin.video.movieshortlist-1.0.0.zip`](dist/plugin.video.movieshortlist-1.0.0.zip)
-   herunterladen und auf den Kodi-Rechner kopieren.
+### Empfohlen: über das Repository (mit automatischen Updates)
+
+1. Repository-ZIP herunterladen:
+   [`dist/repository.movieshortlist-1.0.0.zip`](https://github.com/Zendonir/Kodi-Movie-Shortlist/raw/main/dist/repository.movieshortlist-1.0.0.zip)
+   und auf den Kodi-Rechner kopieren.
 2. Kodi → **Einstellungen → System → Add-ons** → **Unbekannte Quellen** einschalten
    (einmalig, Sicherheitsabfrage mit „Ja“ bestätigen).
-3. Kodi → **Einstellungen → Add-ons → Aus ZIP-Datei installieren** → ZIP-Datei auswählen.
-4. Nach der Meldung „Add-on installiert“ ist alles aktiv – ein Neustart ist nicht nötig.
+3. Kodi → **Einstellungen → Add-ons → Aus ZIP-Datei installieren** → Repository-ZIP auswählen.
+4. **Aus Repository installieren → Movie Shortlist Repository → Video-Add-ons →
+   Movie Shortlist → Installieren.**
+
+Kodi prüft das Repository danach regelmäßig (standardmäßig alle 24 Stunden und beim Start)
+und installiert neue Versionen automatisch – sofern unter **Einstellungen → System →
+Add-ons → Aktualisierungen** „Automatisch installieren“ eingestellt ist (Kodi-Standard).
+Sofort prüfen: **Add-ons → Meine Add-ons → Add-on-Repository → Movie Shortlist Repository
+→ Kontextmenü → Nach Updates suchen**.
+
+### Alternativ: nur das Add-on (ohne automatische Updates)
+
+[`dist/plugin.video.movieshortlist-1.0.0.zip`](https://github.com/Zendonir/Kodi-Movie-Shortlist/raw/main/dist/plugin.video.movieshortlist-1.0.0.zip)
+herunterladen und wie oben über „Aus ZIP-Datei installieren“ einspielen. Wird später das
+Repository installiert, übernimmt es die Updates für dieses Add-on.
+
+### Neue Version veröffentlichen (für Entwickler)
+
+1. `version` in `plugin.video.movieshortlist/addon.xml` erhöhen (z. B. `1.0.1`) und
+   `changelog.txt` / `<news>` ergänzen.
+2. `python3 tools/build_release.py` – baut `dist/*.zip` und aktualisiert `repo/`
+   (`addons.xml`, `addons.xml.md5`, ZIP + `.sha256` je Add-on).
+3. `python3 -m unittest discover -s tests` und auf `main` committen/pushen.
+
+Kodi lädt Index und ZIPs direkt von `https://raw.githubusercontent.com/Zendonir/Kodi-Movie-Shortlist/main/repo/`;
+das GitHub-Repository muss dafür öffentlich bleiben. Die Downloads werden per SHA-256
+geprüft.
 
 Es gibt **nur ein Add-on mit einer ID**. Kodi erlaubt mehrere Erweiterungspunkte in einem
 Add-on; Movie Shortlist enthält:
@@ -31,7 +59,6 @@ Add-on; Movie Shortlist enthält:
 | `kodi.context.item`          | `context_add.py`, `context_remove.py` | Kontextmenüeinträge in der Bibliothek |
 | `xbmc.service`               | `service.py`        | Stellt nach Kodi-Start/Profilwechsel den Kontextmenü-Status her |
 
-Das ZIP lässt sich jederzeit neu bauen: `python3 tools/build_zip.py`.
 
 ---
 
@@ -218,7 +245,7 @@ Kodi-Modulen) sowie durch **statische Prüfung gegen die echte Kodi-21-API**:
 * Alle angeforderten JSON-RPC-Felder sind gültige `Video.Fields.Movie` von Kodi 21.
 * `kodi-addon-checker` (Branch omega) für Manifest/Struktur.
 
-Automatisierte Tests (`python3 -m unittest discover -s tests`, 38 Tests):
+Automatisierte Tests (`python3 -m unittest discover -s tests`, 42 Tests):
 
 | Bereich | Geprüft |
 |---------|---------|
@@ -271,9 +298,11 @@ plugin.video.movieshortlist/          ← Inhalt des ZIP
 │       ├── context.py                Kontextmenü-Aktionen
 │       └── service.py                Dienst
 tests/                                Unit-Tests mit Kodi-Nachbildung
-tools/build_zip.py                    Baut dist/plugin.video.movieshortlist-<version>.zip
+tools/build_release.py                Baut dist/*.zip und das Kodi-Repository in repo/
 tools/update_context_conditions.py    Erzeugt die <visible>-Bedingungen in addon.xml
-dist/                                 Installierbares ZIP
+dist/                                 Installierbare ZIPs (Add-on + Repository)
+repo/                                 Kodi-Repository (addons.xml, ZIPs, Prüfsummen)
+repository.movieshortlist/            Quellen des Repository-Add-ons
 ```
 
 Lizenz: MIT

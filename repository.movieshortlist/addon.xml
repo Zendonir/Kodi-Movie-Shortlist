@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.movieshortlist" name="Movie Shortlist Repository" version="1.0.0" provider-name="Movie Shortlist contributors">
+    <extension point="xbmc.addon.repository" name="Movie Shortlist Repository">
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/Zendonir/Kodi-Movie-Shortlist/main/repo/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/Zendonir/Kodi-Movie-Shortlist/main/repo/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/Zendonir/Kodi-Movie-Shortlist/main/repo/</datadir>
+            <hashes>sha256</hashes>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Repository for the Movie Shortlist add-on</summary>
+        <summary lang="de_DE">Repository für das Add-on Movie Shortlist</summary>
+        <description lang="en_GB">Installs Movie Shortlist and keeps it up to date automatically.</description>
+        <description lang="de_DE">Installiert Movie Shortlist und hält es automatisch aktuell.</description>
+        <platform>all</platform>
+        <license>MIT</license>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
