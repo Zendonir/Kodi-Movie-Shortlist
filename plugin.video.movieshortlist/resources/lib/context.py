@@ -49,10 +49,18 @@ def remove(listitem):
     common.refresh_container_if_plugin()
 
 
+def clear():
+    # Same confirmation dialog as in the add-on menu.
+    from . import plugin
+    plugin.clear_shortlist()
+
+
 def run(action, listitem):
     try:
         if action == 'add':
             add(listitem)
+        elif action == 'clear':
+            clear()
         else:
             remove(listitem)
     except Exception as exc:  # pylint: disable=broad-except

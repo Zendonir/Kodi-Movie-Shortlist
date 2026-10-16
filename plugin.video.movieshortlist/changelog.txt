@@ -1,2 +1,5 @@
+v1.0.1 (2026-10-16)
+- Context menu item "Clear movie shortlist" (library and shortlist)
+
 v1.0.0 (2026-10-15)
 - Initial release

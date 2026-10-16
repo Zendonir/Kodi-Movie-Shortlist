@@ -346,6 +346,22 @@ class ContextMenuTests(Base):
         self.assertEqual(self.stored_ids(), [])
         self.assertNotIn('movieshortlist.slot1', self.state.window_properties)
 
+    def test_clear_via_context_menu(self):
+        self.shortlist.add_movie(1)
+        self.shortlist.add_movie(12)
+        self.state.info_labels['Container.FolderPath'] = 'videodb://movies/titles/'
+        self.state.yesno_answer = False
+        self.context.run('clear', self.listitem_for(1))
+        self.assertEqual(self.stored_ids(), [1, 12])
+        self.state.yesno_answer = True
+        self.context.run('clear', self.listitem_for(1))
+        self.assertEqual(self.stored_ids(), [])
+        self.assertEqual(self.state.dialog_calls[-1][2],
+                         'Do you want to remove all movies from the movie shortlist?')
+        self.assertNotIn('movieshortlist.slot1', self.state.window_properties)
+        self.assertEqual(self.state.builtins, [])  # library view is not refreshed
+        self.assertIn(1, self.state.library.movies)
+
     def test_non_movie_is_rejected(self):
         self.context.run('add', self.listitem_for(7, 'episode'))
         self.assertEqual(self.stored_ids(), [])
@@ -457,7 +473,8 @@ class ManifestTests(Base):
             self.assertTrue(os.path.exists(os.path.join(ADDON_DIR, library)), library)
 
     def test_slot_count_matches_properties(self):
-        for condition in self.conditions().values():
+        conditions = self.conditions()
+        for condition in (conditions['context_add.py'], conditions['context_remove.py']):
             slots = re.findall(r'movieshortlist\.slot(\d+)\)', condition)
             self.assertEqual([int(s) for s in slots],
                              list(range(1, self.properties.SLOT_COUNT + 1)))
@@ -480,6 +497,15 @@ class ManifestTests(Base):
         self.assertFalse(self.evaluate('context_add.py', 7, dbtype='episode'))
         self.assertFalse(self.evaluate('context_add.py', 0))
         self.assertFalse(self.evaluate('context_remove.py', 112,
+                                       folder=PLUGIN + '?action=list'))
+
+    def test_clear_item_only_with_entries(self):
+        self.assertFalse(self.evaluate('context_clear.py', 1))
+        self.shortlist.add_movie(112)
+        self.assertTrue(self.evaluate('context_clear.py', 1))
+        self.assertTrue(self.evaluate('context_clear.py', 112))
+        self.assertFalse(self.evaluate('context_clear.py', 7, dbtype='episode'))
+        self.assertFalse(self.evaluate('context_clear.py', 112,
                                        folder=PLUGIN + '?action=list'))
 
     def test_strings_complete(self):

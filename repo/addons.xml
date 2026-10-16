@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.movieshortlist" name="Movie Shortlist" version="1.0.0" provider-name="Movie Shortlist contributors">
+<addon id="plugin.video.movieshortlist" name="Movie Shortlist" version="1.0.1" provider-name="Movie Shortlist contributors">
     <requires>
         <import addon="xbmc.python" version="3.0.1"/>
     </requires>
@@ -17,6 +17,10 @@
                 <label>32002</label>
                 <visible>String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.DBID) + !String.StartsWith(Container.FolderPath,plugin://plugin.video.movieshortlist/) + [String.IsEqual(Window(Home).Property(movieshortlist.slot1),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot2),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot3),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot4),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot5),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot6),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot7),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot8),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot9),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot10),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot11),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot12),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot13),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot14),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot15),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot16),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot17),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot18),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot19),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot20),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot21),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot22),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot23),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot24),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot25),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot26),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot27),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot28),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot29),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot30),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot31),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot32),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot33),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot34),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot35),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot36),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot37),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot38),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot39),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot40),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot41),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot42),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot43),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot44),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot45),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot46),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot47),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot48),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot49),ListItem.DBID) | String.IsEqual(Window(Home).Property(movieshortlist.slot50),ListItem.DBID)]</visible>
             </item>
+            <item library="context_clear.py">
+                <label>32014</label>
+                <visible>String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.DBID) + !String.StartsWith(Container.FolderPath,plugin://plugin.video.movieshortlist/) + !String.IsEmpty(Window(Home).Property(movieshortlist.slot1))</visible>
+            </item>
         </menu>
     </extension>
     <extension point="xbmc.service" library="service.py"/>
@@ -29,7 +33,7 @@
         <disclaimer lang="de_DE">Das Add-on verändert die Bibliothek nicht, es liest sie nur.</disclaimer>
         <platform>all</platform>
         <license>MIT</license>
-        <news>1.0.0 - Initial release</news>
+        <news>1.0.1 - Kontextmenüpunkt „Filmauswahl leeren“ / context menu item "Clear movie shortlist"&#10;1.0.0 - Initial release</news>
         <assets>
             <icon>resources/media/icon.png</icon>
             <fanart>resources/media/fanart.jpg</fanart>
