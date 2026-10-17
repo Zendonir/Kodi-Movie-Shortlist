@@ -151,3 +151,15 @@ msgstr "Ausführliche Protokollierung aktivieren"
 msgctxt "#32105"
 msgid "Writes additional information to the Kodi log. Only needed for troubleshooting."
 msgstr "Schreibt zusätzliche Informationen ins Kodi-Log. Nur zur Fehlersuche nötig."
+
+msgctxt "#32050"
+msgid "\"{0}\" was watched and removed from the movie shortlist"
+msgstr "„{0}“ wurde gesehen und aus der Filmauswahl entfernt"
+
+msgctxt "#32106"
+msgid "Remove watched movies automatically"
+msgstr "Gesehene Filme automatisch entfernen"
+
+msgctxt "#32107"
+msgid "As soon as Kodi marks a movie of the shortlist as watched (after playback or manually), it is removed from the shortlist. This lets you work through the list movie by movie."
+msgstr "Sobald Kodi einen Film der Filmauswahl als gesehen markiert (nach der Wiedergabe oder manuell), wird er aus der Filmauswahl entfernt. So lässt sich die Liste Film für Film abarbeiten."

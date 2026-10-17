@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.movieshortlist" name="Movie Shortlist" version="1.0.1" provider-name="Movie Shortlist contributors">
+<addon id="plugin.video.movieshortlist" name="Movie Shortlist" version="1.0.2" provider-name="Movie Shortlist contributors">
     <requires>
         <import addon="xbmc.python" version="3.0.1"/>
     </requires>
@@ -33,7 +33,7 @@
         <disclaimer lang="de_DE">Das Add-on verändert die Bibliothek nicht, es liest sie nur.</disclaimer>
         <platform>all</platform>
         <license>MIT</license>
-        <news>1.0.1 - Kontextmenüpunkt „Filmauswahl leeren“ / context menu item "Clear movie shortlist"&#10;1.0.0 - Initial release</news>
+        <news>1.0.2 - Gesehene Filme verschwinden automatisch aus der Filmauswahl / watched movies are removed automatically&#10;1.0.1 - Kontextmenüpunkt „Filmauswahl leeren“ / context menu item "Clear movie shortlist"&#10;1.0.0 - Initial release</news>
         <assets>
             <icon>resources/media/icon.png</icon>
             <fanart>resources/media/fanart.jpg</fanart>

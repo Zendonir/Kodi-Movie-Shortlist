@@ -17,6 +17,11 @@
                     </constraints>
                     <control type="list" format="string"/>
                 </setting>
+                <setting id="remove_watched" type="boolean" label="32106" help="32107">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
             </group>
         </category>
         <category id="troubleshooting" label="32103" help="">

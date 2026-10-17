@@ -1,3 +1,6 @@
+v1.0.2 (2026-10-17)
+- Watched movies are removed from the shortlist automatically (setting, default on)
+
 v1.0.1 (2026-10-16)
 - Context menu item "Clear movie shortlist" (library and shortlist)
 

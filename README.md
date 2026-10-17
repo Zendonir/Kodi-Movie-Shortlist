@@ -37,7 +37,7 @@ Sofort prüfen: **Add-ons → Meine Add-ons → Add-on-Repository → Movie Shor
 
 ### Alternativ: nur das Add-on (ohne automatische Updates)
 
-[`dist/plugin.video.movieshortlist-1.0.1.zip`](https://github.com/Zendonir/Kodi-Movie-Shortlist/raw/main/dist/plugin.video.movieshortlist-1.0.1.zip)
+[`dist/plugin.video.movieshortlist-1.0.2.zip`](https://github.com/Zendonir/Kodi-Movie-Shortlist/raw/main/dist/plugin.video.movieshortlist-1.0.2.zip)
 herunterladen und wie oben über „Aus ZIP-Datei installieren“ einspielen. Wird später das
 Repository installiert, übernimmt es die Updates für dieses Add-on.
 
@@ -107,12 +107,30 @@ berücksichtigt den Kodi-Sortiertitel, Umlaute/Akzente werden wie Grundbuchstabe
 · Erscheinungsjahr (neueste zuerst) · IMDb-Bewertung (höchste zuerst) · Laufzeit
 (kürzeste zuerst). Filme ohne den jeweiligen Wert stehen immer am Ende.
 
+### Liste abarbeiten: gesehene Filme verschwinden automatisch
+
+Sobald Kodi einen Film der Filmauswahl als **gesehen** markiert, entfernt das Add-on ihn aus
+der Filmauswahl und zeigt kurz „„Titel“ wurde gesehen und aus der Filmauswahl entfernt“.
+So lässt sich die Liste Film für Film abarbeiten – egal ob der Film aus der Filmauswahl,
+über **„Zufälligen Film auswählen“**, aus der Bibliothek oder mit einem externen Player
+(MPC-BE/MPC-HC) gestartet wurde.
+
+* „Gesehen“ entscheidet Kodi selbst: standardmäßig, wenn mehr als 90 % des Films gelaufen
+  sind (bei abgebrochener Wiedergabe bleibt der Film in der Liste, mit Fortschrittsbalken).
+  Externe Player: gemäß Kodis Einstellung für externe Player.
+* Auch „Als gesehen markieren“ im Kontextmenü entfernt den Film aus der Filmauswahl.
+* Technisch: Der Hintergrunddienst wertet Kodis Meldung `VideoLibrary.OnUpdate` mit dem
+  neuen Wiedergabezähler aus (`CVideoDatabase::SetPlayCount`); die Bibliothek wird dabei
+  nicht verändert.
+* Abschaltbar in den Einstellungen („Gesehene Filme automatisch entfernen“, Standard: an).
+
 Tipp fürs Sofa: Den Menüpunkt „Filmauswahl anzeigen“ per Kontextmenü → „Zu Favoriten
 hinzufügen“ ablegen oder in Estuary als Hauptmenü-/Widget-Eintrag verwenden.
 
 ### Einstellungen
 
 * **Sortierung der Filmauswahl** (identisch mit dem Menüpunkt „Sortierung“)
+* **Gesehene Filme automatisch entfernen** (Standard: an)
 * **Ausführliche Protokollierung** – nur zur Fehlersuche; ansonsten schreibt das Add-on
   nur Warnungen/Fehler und wenige Statusmeldungen ins Kodi-Log.
 
@@ -256,7 +274,7 @@ Kodi-Modulen) sowie durch **statische Prüfung gegen die echte Kodi-21-API**:
 * Alle angeforderten JSON-RPC-Felder sind gültige `Video.Fields.Movie` von Kodi 21.
 * `kodi-addon-checker` (Branch omega) für Manifest/Struktur.
 
-Automatisierte Tests (`python3 -m unittest discover -s tests`, 44 Tests):
+Automatisierte Tests (`python3 -m unittest discover -s tests`, 50 Tests):
 
 | Bereich | Geprüft |
 |---------|---------|

@@ -86,7 +86,7 @@ class State:
         self.notifications = []
         self.builtins = []
         self.log = []
-        self.settings = {'sort_order': 0, 'debug_logging': False}
+        self.settings = {'sort_order': 0, 'debug_logging': False, 'remove_watched': True}
         self.info_labels = {}
         self.yesno_answer = False
         self.select_answer = -1
