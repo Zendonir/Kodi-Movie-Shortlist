@@ -151,3 +151,15 @@ msgstr ""
 msgctxt "#32105"
 msgid "Writes additional information to the Kodi log. Only needed for troubleshooting."
 msgstr ""
+
+msgctxt "#32050"
+msgid "\"{0}\" was watched and removed from the movie shortlist"
+msgstr ""
+
+msgctxt "#32106"
+msgid "Remove watched movies automatically"
+msgstr ""
+
+msgctxt "#32107"
+msgid "As soon as Kodi marks a movie of the shortlist as watched (after playback or manually), it is removed from the shortlist. This lets you work through the list movie by movie."
+msgstr ""

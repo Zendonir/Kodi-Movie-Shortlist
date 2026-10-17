@@ -383,6 +383,65 @@ class ContextMenuTests(Base):
         self.assertTrue(any('Service started' in msg for _, msg in self.state.log))
 
 
+class WatchedTests(Base):
+    @staticmethod
+    def update(movieid, playcount, media_type='movie', **extra):
+        data = {'item': {'id': movieid, 'type': media_type}, 'playcount': playcount}
+        data.update(extra)
+        return json.dumps(data)
+
+    def test_watched_movie_is_removed(self):
+        self.shortlist.add_movie(1)
+        self.shortlist.add_movie(12)
+        self.state.info_labels['Container.FolderPath'] = PLUGIN + '?action=list'
+        self.service.handle_notification('VideoLibrary.OnUpdate', self.update(1, 1))
+        self.assertEqual(self.stored_ids(), [12])
+        self.assertIn('"Alien" was watched and removed from the movie shortlist',
+                      self.state.notifications)
+        self.assertIn('Container.Refresh', self.state.builtins)
+        self.assertNotEqual(self.state.window_properties.get('movieshortlist.slot1'), '1')
+        self.assertIn(1, self.state.library.movies)  # library untouched
+
+    def test_rewatch_counts_too(self):
+        self.shortlist.add_movie(1)
+        self.service.handle_notification('VideoLibrary.OnUpdate', self.update(1, 3))
+        self.assertEqual(self.stored_ids(), [])
+
+    def test_ignored_notifications(self):
+        self.shortlist.add_movie(1)
+        for method, data in (
+                ('VideoLibrary.OnUpdate', self.update(1, 0)),             # marked unwatched
+                ('VideoLibrary.OnUpdate', json.dumps({'item': {'id': 1, 'type': 'movie'}})),
+                ('VideoLibrary.OnUpdate', self.update(1, 1, 'episode')),
+                ('VideoLibrary.OnUpdate', self.update(1, 1, transaction=True)),
+                ('VideoLibrary.OnScanFinished', self.update(1, 1)),
+                ('VideoLibrary.OnUpdate', '{broken'),
+                ('VideoLibrary.OnUpdate', self.update(999, 1))):         # not listed
+            self.service.handle_notification(method, data)
+        self.assertEqual(self.stored_ids(), [1])
+        self.assertEqual(self.state.notifications, [])
+
+    def test_setting_off_keeps_movie(self):
+        self.shortlist.add_movie(1)
+        self.state.settings['remove_watched'] = False
+        self.service.handle_notification('VideoLibrary.OnUpdate', self.update(1, 1))
+        self.assertEqual(self.stored_ids(), [1])
+
+    def test_random_pick_is_worked_off(self):
+        self.shortlist.add_movie(1)
+        self.shortlist.add_movie(112)
+        self.run_plugin('?action=random', handle=-1)
+        picked = self.state.dialog_calls[-1][1].tag.values['DbId']
+        # user presses "Play" in the info dialog, Kodi marks the movie as watched
+        self.service.handle_notification('VideoLibrary.OnUpdate', self.update(picked, 1))
+        self.assertNotIn(picked, self.stored_ids())
+        self.assertEqual(len(self.stored_ids()), 1)
+
+    def test_monitor_swallows_errors(self):
+        monitor = self.service.ShortlistMonitor()
+        monitor.onNotification('xbmc', 'VideoLibrary.OnUpdate', None)
+
+
 class ConditionEvaluator:
     """Tiny evaluator for the subset of Kodi's boolean grammar used in addon.xml."""
 
